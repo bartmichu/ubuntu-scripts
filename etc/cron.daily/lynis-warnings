@@ -1,6 +1,5 @@
 #!/bin/sh
 
-date=$(date +%Y%m%d)
 email_address="root"
 email_subject="`hostname` - Lynis Audit Warnings"
 
