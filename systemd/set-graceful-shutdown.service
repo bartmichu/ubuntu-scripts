@@ -1,0 +1,27 @@
+## ----------------------------------------------------------------------
+## https://github.com/bartmichu/ubuntu-scripts
+##
+## Installation:
+##   mv check-graceful-shutdown.service /etc/systemd/system/check-graceful-shutdown.service
+##   mv set-graceful-shutdown.service /etc/systemd/system/set-graceful-shutdown.service
+##   systemctl daemon-reload
+##   systemctl enable check-graceful-shutdown
+##   systemctl enable set-graceful-shutdown
+##
+## Usage:
+##   systemctl is-active check-graceful-shutdown && echo GOOD || echo BAD
+##
+## ----------------------------------------------------------------------
+
+[Unit]
+Description=Set flag for graceful shutdown
+DefaultDependencies=no
+RefuseManualStart=true
+Before=shutdown.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/touch /etc/graceful_shutdown_sentinel
+
+[Install]
+WantedBy=shutdown.target
