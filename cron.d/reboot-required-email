@@ -1,2 +1,2 @@
 ## Check if reboot-required flag is set and email notification
-05 * * * * root /root/scripts/reboot-required-email.sh
+00 05 * * * root /root/scripts/reboot-required-email.sh
