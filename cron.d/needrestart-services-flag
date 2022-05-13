@@ -1,0 +1,2 @@
+## Create the reboot-required file if some services need to be restarted
+0 */4 * * * root /root/scripts/needrestart-services-flag.sh
