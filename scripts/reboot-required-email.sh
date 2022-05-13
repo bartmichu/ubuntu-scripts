@@ -3,16 +3,27 @@
 ## ----------------------------------------------------------------------
 ## https://github.com/bartmichu/ubuntu-scripts
 ##
-## Check if reboot-required flag is set and email notification if
+## Check if system reboot is required and send email notification when
 ## needed.
 ##
-## This script may be executed by a cron job.
+## Requirements:
+## - mail utility installed, for example from mailutils package
 ##
 ## ----------------------------------------------------------------------
 
+# User configuration block starts here ->
 email_address="root"
 email_subject="`/bin/hostname` - Reboot Required"
+# <- User configuration block ends here
 
-if [ -f /var/run/reboot-required ]; then
-  echo "A reboot is required following updates to this server: `/bin/hostname`" | /usr/bin/mail -s "$email_subject" $email_address
+mail_cmd="/usr/bin/mail"
+reboot_flag_file="/var/run/reboot-required"
+
+if [ ! -x ${mail_cmd} ]; then
+  echo "Error: mail utility is not installed."
+  exit 1
+fi
+
+if [ -f ${reboot_flag_file} ]; then
+  echo "A reboot is required following updates to this server: `/bin/hostname`" | ${mail_cmd} -s "$email_subject" $email_address
 fi
