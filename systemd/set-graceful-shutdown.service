@@ -14,14 +14,14 @@
 ## ----------------------------------------------------------------------
 
 [Unit]
-Description=Set flag for graceful shutdown
+Description=Create flag file on graceful shutdown
 DefaultDependencies=no
 RefuseManualStart=true
 Before=shutdown.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/touch /etc/graceful_shutdown_sentinel
+ExecStart=/usr/bin/touch /etc/graceful_shutdown_flag
 
 [Install]
 WantedBy=shutdown.target

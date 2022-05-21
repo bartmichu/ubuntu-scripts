@@ -15,14 +15,14 @@
 
 [Unit]
 Description=Check if previous system shutdown was graceful
-ConditionPathExists=/etc/graceful_shutdown_sentinel
+ConditionPathExists=/etc/graceful_shutdown_flag
 RefuseManualStart=true
 RefuseManualStop=true
 
 [Service]
 Type=oneshot
 RemainAfterExit=true
-ExecStart=/usr/bin/rm /etc/graceful_shutdown_sentinel
+ExecStart=/usr/bin/rm /etc/graceful_shutdown_flag
 
 [Install]
 WantedBy=multi-user.target
