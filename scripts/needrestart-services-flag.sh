@@ -12,9 +12,6 @@
 ##
 ## ----------------------------------------------------------------------
 
-# User configuration block starts here ->
-# <- User configuration block ends here
-
 needrestart_cmd="/usr/sbin/needrestart"
 reboot_flag_file="/var/run/reboot-required"
 
