@@ -15,8 +15,8 @@
 ##   Returns 0 when system was shut down gracefully, 1 when ungracefully.
 ##
 ## Installation:
-##   $ sudo mv graceful-shutdown-sentinel.service /etc/systemd/system/graceful-shutdown-sentinel.service
-##   $ sudo mv graceful-shutdown-set.service /etc/systemd/system/graceful-shutdown-set.service
+##   $ sudo mv graceful-shutdown-sentinel.service /usr/lib/systemd/system/graceful-shutdown-sentinel.service
+##   $ sudo mv graceful-shutdown-set.service /usr/lib/systemd/system/graceful-shutdown-set.service
 ##   $ sudo systemctl daemon-reload
 ##   $ sudo systemctl enable graceful-shutdown-sentinel
 ##   $ sudo systemctl enable graceful-shutdown-set
