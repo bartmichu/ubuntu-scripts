@@ -32,7 +32,7 @@
 ##
 ## ----------------------------------------------------------------------
 
-systemctl --quiet is-active graceful-shutdown-sentinel
+/usr/bin/systemctl --quiet is-active graceful-shutdown-sentinel
 service_rc=$?
 
 if [ $service_rc -eq 0 ]; then
