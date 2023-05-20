@@ -3,12 +3,13 @@
 ## ----------------------------------------------------------------------
 ## https://github.com/bartmichu/ubuntu-scripts
 ##
-## Create the reboot-required flag file if some services require restart
-## i.e. they continue to use files deleted after upgrade or removal of
-## packages.
+## Create the "reboot-required" flag file if there are services that
+## require a restart, meaning they are still using files that were
+## deleted after package upgrade or removal.
 ##
 ## Requirements:
-## - needrestart package installed (default on Ubuntu Server 22.04)
+## - The "needrestart" package installed (default on Ubuntu
+##   Server 22.04).
 ##
 ## ----------------------------------------------------------------------
 
@@ -16,7 +17,7 @@ needrestart_cmd="/usr/sbin/needrestart"
 reboot_flag_file="/var/run/reboot-required"
 
 if [ ! -x ${needrestart_cmd} ]; then
-  echo "Error: needrestart is not installed, can not check which services need to be restarted."
+  echo "Error: needrestart is not installed. Unable to check which services need to be restarted."
   exit 1
 fi
 
@@ -35,7 +36,7 @@ if [ $needrestart_rc -eq 0 ]; then
       if [ $touch_rc -eq 0 ]; then
         exit 0
       else
-        echo "Error: touch command returned unhandled code: "
+        echo "Error: The touch command returned an unhandled code: "
         echo $touch_rc
         exit $touch_rc
       fi
@@ -44,7 +45,7 @@ if [ $needrestart_rc -eq 0 ]; then
     exit 0
   fi
 else
-  echo "Error: needrestart command returned unhandled code: "
+  echo "Error: The needrestart command returned an unhandled code: "
   echo $needrestart_rc
   exit $needrestart_rc
 fi

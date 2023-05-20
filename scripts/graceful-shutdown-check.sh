@@ -3,18 +3,19 @@
 ## ----------------------------------------------------------------------
 ## https://github.com/bartmichu/ubuntu-scripts
 ##
-## Graceful shutdown check
+## Graceful shutdown check.
 ##
 ## This script consists of three parts:
 ## - graceful-shutdown-set.service file
-##   Creates flag file on proper system shutdown.
+##   Creates a flag file on proper system shutdown.
 ## - graceful-shutdown-sentinel.service file
-##   Activates on system startup if flag file exists, clears up and then
-##   stays active.
+##   Activates on system startup if the flag file exists, clears it up,
+##   and then remains active.
 ## - graceful-shutdown-check.sh file
-##   Actual script file. Uses services and flag file to determine if
-##   last shutdown was graceful and then outputs appropriate message.
-##   Returns 0 when system was shut down gracefully, 1 when ungracefully.
+##   The actual script file. It utilizes services and the flag file to
+##   determine if the last shutdown was graceful and outputs the
+##   corresponding message. It returns 0 when the system was shut down
+##   gracefully and 1 when it was shut down ungracefully.
 ##
 ## Installation:
 ##   $ sudo mv graceful-shutdown-sentinel.service /etc/systemd/system/graceful-shutdown-sentinel.service

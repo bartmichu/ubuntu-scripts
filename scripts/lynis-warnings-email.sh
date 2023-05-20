@@ -3,11 +3,13 @@
 ## ----------------------------------------------------------------------
 ## https://github.com/bartmichu/ubuntu-scripts
 ##
-## Run Lynis system audit and email warnings when needed.
+## Perform a system audit with Lynis and send email notifications for
+## any detected warnings.
 ##
 ## Requirements:
-## - mail utility installed, for example from mailutils package
-## - lynis package installed
+## - The "mail" utility installed, for example from the "mailutils"
+##   package.
+## - The "lynis" package installed.
 ##
 ## ----------------------------------------------------------------------
 
@@ -20,12 +22,12 @@ lynis_cmd="/usr/sbin/lynis"
 mail_cmd="/usr/bin/mail"
 
 if [ ! -x ${mail_cmd} ]; then
-  echo "Error: mail utility is not installed."
+  echo "Error: The mail utility is not installed."
   exit 1
 fi
 
 if [ ! -x ${lynis_cmd} ]; then
-  echo "Error: Lynis is not installed, can not run system audit."
+  echo "Error: Lynis is not installed. Unable to perform a system audit."
   exit 1
 fi
 

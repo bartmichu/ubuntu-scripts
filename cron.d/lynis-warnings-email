@@ -1,2 +1,2 @@
-## Lynis: run system audit and email warnings
+## Lynis: Perform a system audit and send email notifications for any warnings detected.
 20 4 * * * root /root/scripts/lynis-warnings-email.sh
