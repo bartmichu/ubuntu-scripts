@@ -1,22 +1,22 @@
 #!/bin/bash
 
-## ----------------------------------------------------------------------
-## https://github.com/bartmichu/ubuntu-scripts
-##
-## Perform a system audit with Lynis and send email notifications for
-## any detected warnings.
-##
-## Requirements:
-## - The "mail" utility installed, for example from the "mailutils"
-##   package.
-## - The "lynis" package installed.
-##
-## ----------------------------------------------------------------------
+# -----------------------------------------------------------------------
+# https://github.com/bartmichu/ubuntu-scripts
+#
+# Conduct a Lynis system audit and dispatch email notifications for any
+# detected warnings.
+#
+# Requirements:
+# - The 'mail' utility must be installed, for example, from the
+#   'mailutils' package.
+# - The 'lynis' package installed.
+#
+# -----------------------------------------------------------------------
 
-# User configuration block starts here ->
+# User configuration block starts here
 email_address="root"
 email_subject="`/bin/hostname` - Lynis Audit Warnings"
-# <- User configuration block ends here
+# User configuration block ends here
 
 lynis_cmd="/usr/sbin/lynis"
 mail_cmd="/usr/bin/mail"

@@ -1,34 +1,33 @@
-## ----------------------------------------------------------------------
-## https://github.com/bartmichu/ubuntu-scripts
-##
-## Graceful shutdown check
-##
-## This script consists of three parts:
-## - graceful-shutdown-set.service file
-##   Creates flag file on proper system shutdown.
-## - graceful-shutdown-sentinel.service file
-##   Activates on system startup if flag file exists, clears up and then
-##   stays active.
-## - graceful-shutdown-check.sh file
-##   Actual script file. Uses services and flag file to determine if
-##   last shutdown was graceful and then outputs appropriate message.
-##   Returns 0 when system was shut down gracefully, 1 when ungracefully.
-##
-## Installation:
-##   $ sudo mv graceful-shutdown-sentinel.service /usr/lib/systemd/system/graceful-shutdown-sentinel.service
-##   $ sudo mv graceful-shutdown-set.service /usr/lib/systemd/system/graceful-shutdown-set.service
-##   $ sudo systemctl daemon-reload
-##   $ sudo systemctl enable graceful-shutdown-sentinel
-##   $ sudo systemctl enable graceful-shutdown-set
-##   $ sudo chmod 0700 graceful-shutdown-check.sh
-##
-## Usage:
-##   $ sudo ./graceful-shutdown-check.sh
-##
-## Or, alternatively, service state can be used directly:
-##   $ sudo systemctl --quiet is-active graceful-shutdown-sentinel && echo graceful || echo UNGRACEFUL
-##
-## ----------------------------------------------------------------------
+# -----------------------------------------------------------------------
+# https://github.com/bartmichu/ubuntu-scripts
+#
+# Graceful shutdown check.
+#
+# This script comprises three components:
+# - graceful-shutdown-set.service: Generates a flag file during a proper
+#   system shutdown.
+# - graceful-shutdown-sentinel.service: Activates during system startup
+#   if the flag file exists, clears it, and remains active.
+# - graceful-shutdown-check.sh: The script file determines the
+#   gracefulness of the last shutdown by analyzing services and the flag
+#   file, providing an output message. It returns 0 for a graceful
+#   shutdown and 1 for an ungraceful one.
+#
+# Installation:
+#   $ sudo mv graceful-shutdown-sentinel.service /etc/systemd/system/graceful-shutdown-sentinel.service
+#   $ sudo mv graceful-shutdown-set.service /etc/systemd/system/graceful-shutdown-set.service
+#   $ sudo systemctl daemon-reload
+#   $ sudo systemctl enable graceful-shutdown-sentinel
+#   $ sudo systemctl enable graceful-shutdown-set
+#   $ sudo chmod 0700 graceful-shutdown-check.sh
+#
+# Usage:
+#   $ sudo ./graceful-shutdown-check.sh
+#
+# Or, alternatively, service state can be used directly:
+#   $ sudo systemctl --quiet is-active graceful-shutdown-sentinel && echo graceful || echo UNGRACEFUL
+#
+# -----------------------------------------------------------------------
 
 [Unit]
 Description=Create flag file on graceful shutdown

@@ -1,17 +1,17 @@
 #!/bin/bash
 
-## ----------------------------------------------------------------------
-## https://github.com/bartmichu/ubuntu-scripts
-##
-## Create the "reboot-required" flag file if there are services that
-## require a restart, meaning they are still using files that were
-## deleted after package upgrade or removal.
-##
-## Requirements:
-## - The "needrestart" package installed (default on Ubuntu
-##   Server 22.04).
-##
-## ----------------------------------------------------------------------
+# -----------------------------------------------------------------------
+# https://github.com/bartmichu/ubuntu-scripts
+#
+# This script creates the 'reboot-required' flag file if there are
+# services that necessitate a restart, indicating that they are still
+# using files deleted during a package upgrade or removal.
+#
+# Requirements:
+# - The 'needrestart' package installed (installed by default on Ubuntu
+#   Server 22.04).
+#
+# -----------------------------------------------------------------------
 
 needrestart_cmd="/usr/sbin/needrestart"
 reboot_flag_file="/var/run/reboot-required"

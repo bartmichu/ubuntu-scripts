@@ -1,21 +1,21 @@
 #!/bin/bash
 
-## ----------------------------------------------------------------------
-## https://github.com/bartmichu/ubuntu-scripts
-##
-## Check if a system reboot is required and send an email notification
-## when necessary.
-##
-## Requirements:
-## - The "mail" utility installed, for example from the "mailutils"
-##   package.
-##
-## ----------------------------------------------------------------------
+# -----------------------------------------------------------------------
+# https://github.com/bartmichu/ubuntu-scripts
+#
+# This script checks if a system reboot is required and sends an email
+# notification when necessary.
+#
+# Requirements:
+# - The 'mail' utility must be installed, for example, from the
+#   'mailutils' package.
+#
+# -----------------------------------------------------------------------
 
-# User configuration block starts here ->
+# User configuration block starts here
 email_address="root"
 email_subject="`/bin/hostname` - Reboot Required"
-# <- User configuration block ends here
+# User configuration block ends here
 
 mail_cmd="/usr/bin/mail"
 reboot_flag_file="/var/run/reboot-required"
